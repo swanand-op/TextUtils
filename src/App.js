@@ -4,11 +4,7 @@ import Navbar from './Components/Navbar';
 import TextForm from './Components/TextForm';
 import Alert from './Components/Alert';
 import About from './Components/About';
-import {
-  BrowserRouter as Router,
-  Route,
-  Routes
-} from "react-router-dom";
+
 
 function App() {
 
@@ -46,19 +42,14 @@ const toggleMode = ()=> {
 
   return (
     <>
-    <Router>
     <Navbar title= "TextUtils" mode={mode} btnText={btnText} toggleMode={toggleMode}/>
     <div className="container my-3">
       <Alert alert={alert} mode={mode}/>
     </div>
     <div className="container my-3">
-      <Routes>
-          <Route exact path="/" element={ <TextForm heading= "Enter text to Analyze" mode={mode} showAlert={showAlert}/>}/>
-           
-          <Route exact path="/About" element={<About/>}/>
-     </Routes>
+      <TextForm heading= "Enter text to Analyze" mode={mode} showAlert={showAlert}/>
+     <About/>
     </div>
-    </Router>
     </>
   );
 }
